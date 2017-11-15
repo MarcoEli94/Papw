@@ -15,7 +15,7 @@ and open the template in the editor.
         <div class="container">
             <div class="login">
                 <h1>Login</h1>
-                <form method="POST" action="/trial/MyApp">
+                <form method="POST" action="/Proyecto/LogInServlet">
                     <p><input type="text" name="correoUsuario" value="" placeholder="Username"></p>
                     <p><input type="password" name="passwordUsuario" value="" placeholder="Password"></p>
                     <p class="remember_me">
@@ -26,7 +26,7 @@ and open the template in the editor.
                             </label>
                         
                     </p>
-                    <p class="submit"> <input type="submit" name="commit" value="Login"></p>
+                    <p class="submit"> <input type="submit" naxºme="commit" value="Login"></p>
                 </form>
             </div>  
        

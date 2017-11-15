@@ -12,7 +12,7 @@
       
     </head>
     <body>    
-        <form enctype="multipart/form-data" action="/trial/insertarUsuarioServlet" class="register" method="POST">
+        <form enctype="multipart/form-data" action="/Proyecto/insertarUsuarioServlet" class="register" method="POST">
             <h1>Registration</h1>
             <fieldset class="row1">
                 <legend> Account Attributes
