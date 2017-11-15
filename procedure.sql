@@ -13,10 +13,10 @@ CREATE PROCEDURE proc_login(correo VARCHAR(50), password VARCHAR(50))
 
    DELIMITER $$
 CREATE PROCEDURE proc_inUsuario(correo VARCHAR(50), password VARCHAR(50), nombre VARCHAR(50), nacimiento DATE, genero VARCHAR(1),
-	pais VARCHAR(50), estado VARCHAR(50), ciudad VARCHAR(50))
+    pais VARCHAR(50), estado VARCHAR(50), ciudad VARCHAR(50))
     BEGIN
-		INSERT INTO Usuario SET
-			correoUsuario = correo,
+        INSERT INTO Usuario SET
+            correoUsuario = correo,
             passwordUsuario = md5(password),
             nombreUsuario = nombre,
             nacimientoUsuario = nacimiento,
@@ -24,4 +24,5 @@ CREATE PROCEDURE proc_inUsuario(correo VARCHAR(50), password VARCHAR(50), nombre
             paisUsuario = pais,
             estadoUsuario = estado,
             ciudadUsuario = ciudad;
+        SELECT LAST_INSERT_ID() as id;
     END

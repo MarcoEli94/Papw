@@ -1,7 +1,11 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitions//EN" 
     "http://www.w3.org/TR/html4/loose.dtd">
-
+<%
+    if(request.getParameter("id") != null){
+        out.println("<script>alert('Lo sentimos, el usuario y/o correo se encuentra en uso.');</script>");
+    }
+    %>
 <html>
     <head>
         <title>Registration</title>
@@ -12,7 +16,7 @@
       
     </head>
     <body>    
-        <form enctype="multipart/form-data" action="/Proyecto/insertarUsuarioServlet" class="register" method="POST">
+        <form  action="/Proyecto/insertarUsuarioServlet" class="register" method="POST">
             <h1>Registration</h1>
             <fieldset class="row1">
                 <legend> Account Attributes
@@ -62,6 +66,10 @@
                 <p>
                     <label>Birthday</label>
                     <input type="date" id="nacimientoUsuario" name="nacimientoUsuario">
+                </p>
+                <p>
+                    <label>Birthday</label>
+                    <input type="checkbox" id="generoUsuario" name="generoUsuario">
                 </p>
        
                 <p>

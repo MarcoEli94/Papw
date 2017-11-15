@@ -44,15 +44,28 @@ public class insertarUsuarioServlet extends HttpServlet {
         String nombre = request.getParameter("nombreUsuario");
         String nacimiento = request.getParameter("nacimientoUsuario");
         String genero = request.getParameter("generoUsuario");
+        
+        if(genero != null ) genero = "M";
+        else genero = "H";  
+        
         String pais = request.getParameter("paisUsuario");
         String estado = request.getParameter("estadoUsuario");
         String ciudad = request.getParameter("ciudadUsuario");
         
         UsuarioDao ud = new UsuarioDao();
+        int id;
         
-        ud.insert(correo, password, nombre, nacimiento, genero,
+        id = ud.insert(correo, password, nombre, nacimiento, genero,
                     pais, estado, ciudad);
         
+        if(id != 0){
+            HttpSession session = request.getSession();
+            session.setAttribute("id", id);
+            response.sendRedirect("Home.html");
+        } else {
+            response.sendRedirect("Register.jsp?id=0");
+        }
+            
         
         //if(usuario != null){
            // HttpSession session = request.getSession();
@@ -60,9 +73,9 @@ public class insertarUsuarioServlet extends HttpServlet {
             //response.sendRedirect("Home.html");
         //}
         
-        //else response.sendRedirect("index.jsp");
+        //else response.sendRedirect("register.jsp");
         
-    }
+        }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

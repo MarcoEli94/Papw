@@ -7,6 +7,7 @@ package papw.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,10 +50,9 @@ public class LogInServlet extends HttpServlet {
         if(usuario != null){
             HttpSession session = request.getSession();
             session.setAttribute("id", usuario.getId());
-            response.sendRedirect("Home.html");
-        }
-        
-        else response.sendRedirect("index.jsp");
+            RequestDispatcher disp = getServletContext().getRequestDispatcher("/Home.jsp");
+            disp.forward(request, response);  
+        } else response.sendRedirect("index.jsp");
         
     }
 

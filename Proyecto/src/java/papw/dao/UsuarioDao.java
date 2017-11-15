@@ -45,7 +45,7 @@ public class UsuarioDao {
         return null;
     }
     
-    public Usuario insert(String correo, String password, String nombre, String nacimiento, String genero, 
+    public int insert(String correo, String password, String nombre, String nacimiento, String genero, 
                             String pais, String estado, String ciudad){
         ConnectionPool cp = new ConnectionPool();  
         PreparedStatement pst = null;
@@ -62,12 +62,16 @@ public class UsuarioDao {
             pst.setString(6, pais);
             pst.setString(7, estado);
             pst.setString(8, ciudad);
-            
+            Usuario us;
             rs = pst.executeQuery();
+            
+            if(rs.next()){
+                return rs.getInt("id");
+            }
                 
         } catch(SQLException se){
             if(se.getErrorCode() == 1062){
-                throw new RuntimeException("Lo sentimos, el correo y/o nombre de usuario se encuentra en uso.");
+                return 0;
             }
             
             
@@ -78,7 +82,7 @@ public class UsuarioDao {
                 if(rs != null) rs.close();
             } catch(Exception ex) { System.err.println("Error: " + ex   ); }
         }
-        return null;
+        return 0;
     }
     
     public static void main(String[] args){

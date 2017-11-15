@@ -1,3 +1,6 @@
+drop database myVideos;
+create database myVideos;
+
 CREATE TABLE `myVideos`.`Usuario` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT,
   `nombreUsuario` VARCHAR(50) NULL,
@@ -10,6 +13,7 @@ CREATE TABLE `myVideos`.`Usuario` (
   `ciudadUsuario` VARCHAR(50) NULL,
   `avatarUsuario` BLOB NULL,
   `portadaUsuario` BLOB NULL,
+  `perfilUsuario` VARCHAR(1) NOT NULL DEFAULT 'U',
   PRIMARY KEY (`idUsuario`),
   UNIQUE INDEX `nombreUsuario_UNIQUE` (`nombreUsuario` ASC),
   UNIQUE INDEX `correoUsuario_UNIQUE` (`correoUsuario` ASC));
@@ -145,4 +149,6 @@ CREATE TABLE `myVideos`.`Reporte` (
     REFERENCES `myVideos`.`Video` (`idVideo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+
+
 
