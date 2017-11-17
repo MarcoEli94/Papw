@@ -9,10 +9,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- *
- * @author marcoantonioelizondogonzalez
- */
 public class JavaConnection {
     private String username = "root";
     private String password = "";

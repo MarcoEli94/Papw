@@ -8,10 +8,6 @@ package Controller;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-/**
- *
- * @author marcoantonioelizondogonzalez
- */
 public class JavaQuerys extends JavaConnection{
     
     public boolean autentificathion(String usuario, String password){

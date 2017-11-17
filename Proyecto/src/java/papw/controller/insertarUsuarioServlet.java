@@ -17,10 +17,7 @@ import javax.servlet.http.HttpSession;
 import papw.dao.UsuarioDao;
 import papw.model.Usuario;
 
-/**
- *
- * @author marcoantonioelizondogonzalez
- */
+
 @WebServlet(name = "insertarUsuarioServlet", urlPatterns = {"/insertarUsuarioServlet"})
 public class insertarUsuarioServlet extends HttpServlet {
 
